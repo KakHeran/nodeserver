@@ -1,0 +1,19 @@
+const express = require("express");
+const app = express();
+const PORT = 3000
+
+app.listen(PORT, () => {
+    console.log(color("Server running on port 3000"))
+    schedule.scheduleJob('* * * * *', () => { 
+    resetAllLimit()
+})
+})
+
+// serve your css as static
+app.use(express.static(__dirname));
+
+app.get("/", (req, res) => {
+  res.sendFile(__dirname + "/index.html");
+});
+
+module.exports = app
